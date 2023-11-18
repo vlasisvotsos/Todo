@@ -1,10 +1,16 @@
 package com.example.todo;
 
+import static com.example.todo.HttpRequests.postHttpRequest;
+import static com.example.todo.Todo.TodoSerializer;
+
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,12 +25,10 @@ public class MainActivity extends AppCompatActivity {
         changeText = findViewById(R.id.btn_change_text);
         helloWorldTextView = findViewById(R.id.textView);
         changeText.setOnClickListener(v -> {
-            if(helloWorldTextView.getText().toString().equals(getString(R.string.hello_world))){
-                helloWorldTextView.setText(R.string.hi);
-            }else {
-                helloWorldTextView.setText(R.string.hello_world);
-            }
+            Todo todo = new Todo(1,helloWorldTextView.getText().toString());
+            postHttpRequest("",TodoSerializer(todo));
         });
 
     }
+
 }
