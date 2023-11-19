@@ -12,6 +12,10 @@ public class Todo {
         this.description = description;
     }
 
+    public Todo(String description){
+        this.description = description;
+    }
+
     public int getId() {
         return id;
     }
