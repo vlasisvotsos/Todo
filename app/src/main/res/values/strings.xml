@@ -3,4 +3,8 @@
     <string name="hit_me">hit me</string>
     <string name="hi">hi</string>
     <string name="hello_world">Hello World!</string>
+    <string name="todos_title">To Dos</string>
+    <string name="date">dd/mm/yyyy</string>
+    <string name="set_date">set date</string>
+    <string name="insert_todo">insert todo</string>
 </resources>
