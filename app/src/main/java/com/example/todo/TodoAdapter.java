@@ -39,7 +39,7 @@ public class TodoAdapter extends RecyclerView.Adapter<TodoAdapter.TodoHolder> {
     }
 
     public static class TodoHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        TextView description;
+        final TextView description;
         public TodoHolder(@NonNull View itemView) {
             super(itemView);
             description = itemView.findViewById(R.id.textView4);
