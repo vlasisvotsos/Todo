@@ -1,5 +1,8 @@
 package com.example.todo;
 
+import static com.example.todo.HttpRequests.postHttpRequest;
+import static com.example.todo.Todo.TodoSerializer;
+
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -17,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     TodoAdapter todoAdapter;
     RecyclerView recyclerView;
     ArrayList<Todo> todos;
+    String path;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +35,13 @@ public class MainActivity extends AppCompatActivity {
         todoAdapter = new TodoAdapter( todos,this);
         recyclerView.setAdapter(todoAdapter);
 
+        path = "127.0.0.1:3000/todo/create";
+
         changeText.setOnClickListener(v -> {
-            todos.add(new Todo(helloWorldTextView.getText().toString()));
+            Todo todo = new Todo(helloWorldTextView.getText().toString());
+            todos.add(todo);
             todoAdapter.notifyDataSetChanged();
-//            postHttpRequest("",TodoSerializer(todo));
+            postHttpRequest(path,TodoSerializer(todo));
         });
 
     }
